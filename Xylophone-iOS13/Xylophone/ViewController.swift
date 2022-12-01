@@ -18,7 +18,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cButton(_ sender: UIButton) {
-        if (sender.titleLabel?.text == "C"){
+        //print(sender.currentTitle!) tuş alma işlemi
+        /*if (sender.titleLabel?.text == "C"){
             playSound(a: "C")
         }
         else if (sender.titleLabel?.text == "D"){
@@ -38,6 +39,18 @@ class ViewController: UIViewController {
         }
         else if (sender.titleLabel?.text == "B"){
             playSound(a: "B")
+        }*/
+        
+        playSound(a: sender.currentTitle!)
+        
+        UIView.animate(withDuration: 0.1) {
+            sender.alpha = 0.5
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 ) {
+            UIView.animate(withDuration: 0.1) {
+                sender.alpha = 1.0
+            }
         }
     }
     
